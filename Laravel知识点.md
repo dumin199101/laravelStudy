@@ -2,7 +2,7 @@
 > 编辑：lieyan123091  
 > 邮箱：1766266374@qq.com  
 > 版本：v1.0    
-> 日期：2020.4.28
+> 日期：2020.4.28  
 ## Laravel安装
 > Laravel composer安装:  
 >> composer create-project --prefer-dist laravel/laravel=6.0.* blog
@@ -31,3 +31,48 @@
 ### Logo    
 ![laravel logo](https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3162950656,1773643914&fm=26&gp=0.jpg)  
 
+## Laravel中的Csrf
+>默认routes目录下的web.php非GET路由都开启了Csrf请求验证  
+>App\Http\Middleware\VerifyCsrfToken中可添加免Csrf认证的路由
+## 路由
+### 四种基础路由
+>GET、POST、PUT、DELETE  
+###路由构建
+>1.通过闭包构建  
+```
+Route::get('foo', function () {
+    return 'Hello World';
+});
+```  
+>2.通过文件构建  
+```
+Route::get('/login','LoginController@index');
+```
+###其它路由
+>1.match:响应多个请求方式  
+```
+Route::match(['get','post'],'book',function(){
+   dump($_SERVER);
+});
+```  
+>2.any：响应所有请求方式  
+```
+Route::any('books',function (){
+    return 'Books';
+});
+```
+###路由参数
+
+###路由别名
+
+###路由分组
+
+###查看定义的路由
+>php artisan route:list
+##控制器
+###创建控制器
+#### artisan命令行创建
+>php artisan make:controller LoginController  
+>php artisan make:controller -r IndexController 【带有基础代码】
+#### 创建带有二级目录的控制器
+>php artisan make:controller Book/BookInfoController
