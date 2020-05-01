@@ -62,11 +62,38 @@ Route::any('books',function (){
 });
 ```
 ###路由参数
-
+>1.必选参数  
+```
+Route::get('video/{id}',function($id){
+    return 'Get:' . $id;
+});
+```  
+>2.可选参数  
+```
+Route::get('videos/{id?}',function($id=0){
+    return 'Get:' . $id;
+});
+```  
+>3.正则约束 
+```
+Route::get('v/{id}',function($id){
+    return 'Get:' . $id;
+})->where(['id'=>'\d+']);
+``` 
 ###路由别名
-
-###路由分组
-
+```
+Route::any('car',function (){
+    return route('car');
+})->name('car');
+```
+###路由分组之路由前缀
+```
+Route::group(['prefix'=>'sys'],function(){
+   Route::get('login',function(){
+      return 'login';
+   });
+});
+```
 ###查看定义的路由
 >php artisan route:list
 ##控制器
