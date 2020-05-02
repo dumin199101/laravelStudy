@@ -38,7 +38,7 @@
 ### 四种基础路由
 >GET、POST、PUT、DELETE  
 
-###路由构建
+### 路由构建
 >1.通过闭包构建  
 ```
 Route::get('foo', function () {
@@ -50,7 +50,7 @@ Route::get('foo', function () {
 Route::get('/login','LoginController@index');
 ```  
 
-###其它路由
+### 其它路由
 >1.match:响应多个请求方式  
 ```
 Route::match(['get','post'],'book',function(){
@@ -64,7 +64,7 @@ Route::any('books',function (){
 });
 ```
 
-###路由参数
+### 路由参数
 >1.必选参数  
 ```
 Route::get('video/{id}',function($id){
@@ -84,14 +84,14 @@ Route::get('v/{id}',function($id){
 })->where(['id'=>'\d+']);
 ``` 
 
-###路由别名
+### 路由别名
 ```
 Route::any('car',function (){
     return route('car');
 })->name('car');
 ```
 
-###路由分组之路由前缀
+### 路由分组之路由前缀
 ```
 Route::group(['prefix'=>'sys'],function(){
    Route::get('login',function(){
@@ -100,12 +100,12 @@ Route::group(['prefix'=>'sys'],function(){
 });
 ```
 
-###查看定义的路由
+### 查看定义的路由
 >php artisan route:list
 
-##控制器
+## 控制器
 
-###创建控制器
+### 创建控制器
 
 #### artisan命令行创建
 
@@ -115,8 +115,8 @@ Route::group(['prefix'=>'sys'],function(){
 #### 创建带有二级目录的控制器
 
 >php artisan make:controller Book/BookInfoController
-##请求
-###Input类
+## 请求
+### Input类
 >1.get()  
 >2.all()  
 >3.only():白名单  
@@ -132,7 +132,7 @@ dump($username,$password);
 `dump(Input::except('username'));`  
 `dump(Input::has('username'));`
 
-###Request类
+### Request类
 **原理：依赖注入方式传入Request类型参数**
 >1.get()  
 >2.all()  
@@ -151,35 +151,35 @@ dump($username,$password);
 `dump($request->has('username'));`  
 `dump($request->isMethod('get'));`  
 
-###助手函数  
+### 助手函数  
 >request()返回Request类对象  
 `dump(request()->get('username'));`  
 
-##响应  
+## 响应  
 
-###Cookie  
+### Cookie  
 >Laravel中cookie值都是经过加密的  
 >response响应体中要有数据  
 
-####设置cookie  
+#### 设置cookie  
 `return response('Cookie设置成功')->cookie('name','Good',1);`  
 
-####获取cookie  
+#### 获取cookie  
 `return request()->cookie('name');`  
 
-###重定向  
+### 重定向  
 `return redirect()->route('login');`  
 
-###返回json  
+### 返回json  
 `return response()->json(['name'=>'zhangsan','age'=>22],201);`  
 
-##视图  
+## 视图  
 
-###展示视图  
+### 展示视图  
 >目录分层分隔符为.  
 `return view('login.index');`  
 
-###分配数据到视图  
+### 分配数据到视图  
 >1.关联数组     
 `return view('login.index',['data'=>$data]);`  
 >2.compact函数：创建一个包含变量名和值得数组     
