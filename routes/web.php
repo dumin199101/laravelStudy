@@ -36,6 +36,7 @@ Route::get('/login','LoginController@index')->name('login');
 Route::get('/login2','LoginController@index2');
 Route::get('/login3','LoginController@index3');
 Route::get('/login4','LoginController@index4');
+Route::get('/login5','LoginController@index5');
 Route::get('/getCookie','LoginController@getCookie');
 
 Route::match(['get','post'],'book',function(){

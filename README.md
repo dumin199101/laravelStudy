@@ -136,19 +136,30 @@ dump($username,$password);
 `dump($request->only('username','age'));`  
 `dump($request->except('username'));`  
 `dump($request->has('username'));`  
-`dump($request->isMethod('get'));`
-###助手函数
+`dump($request->isMethod('get'));`  
+###助手函数  
 >request()返回Request类对象  
-`dump(request()->get('username'));`
-##响应
-###Cookie
+`dump(request()->get('username'));`  
+##响应  
+###Cookie  
 >Laravel中cookie值都是经过加密的  
->response响应体中要有数据
-####设置cookie
-`return response('Cookie设置成功')->cookie('name','Good',1);`
-####获取cookie
-`return request()->cookie('name');`
-###重定向
-`return redirect()->route('login');`
-###返回json
-`return response()->json(['name'=>'zhangsan','age'=>22],201);`
+>response响应体中要有数据  
+####设置cookie  
+`return response('Cookie设置成功')->cookie('name','Good',1);`  
+####获取cookie  
+`return request()->cookie('name');`  
+###重定向  
+`return redirect()->route('login');`  
+###返回json  
+`return response()->json(['name'=>'zhangsan','age'=>22],201);`  
+##视图  
+###展示视图  
+>目录分层分隔符为.  
+`return view('login.index');`  
+###分配数据到视图  
+>1.关联数组     
+`return view('login.index',['data'=>$data]);`  
+>2.compact函数：创建一个包含变量名和值得数组     
+`return view('login.index',compact('data'));`  
+>3.with传递   
+`return view('login.index')->with('data',$data);` 

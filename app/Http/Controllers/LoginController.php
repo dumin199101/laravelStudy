@@ -54,4 +54,16 @@ class LoginController extends Controller
         //返回json
         return response()->json(['name'=>'zhangsan','age'=>22],201);
     }
+
+    //指定视图
+    public function index5()
+    {
+        $data = [
+            'id'=>1,
+            'name'=>'zhangsan'
+        ];
+//        return view('login.index',['data'=>$data]);
+//        return view('login.index',compact('data'));
+        return view('login.index')->with('data',$data);
+    }
 }
