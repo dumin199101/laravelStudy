@@ -103,3 +103,52 @@ Route::group(['prefix'=>'sys'],function(){
 >php artisan make:controller -r IndexController 【带有基础代码】
 #### 创建带有二级目录的控制器
 >php artisan make:controller Book/BookInfoController
+##请求
+###Input类
+>1.get()  
+>2.all()  
+>3.only():白名单  
+>4.except():黑名单  
+>5.has()  
+```
+$username = Input::get('username','zhangsan');  
+$password = Input::get('password','123123');
+dump($username,$password);
+```
+`dump(Input::all());`  
+`dump(Input::only('username','age'));`  
+`dump(Input::except('username'));`  
+`dump(Input::has('username'));`
+###Request类
+**原理：依赖注入方式传入Request类型参数**
+>1.get()  
+>2.all()  
+>3.only():白名单  
+>4.except():黑名单  
+>5.has()  
+>6.isMethod()
+```
+ $username = $request->get('username','zhangsan');
+ $password = $request->get('password','123123');
+ dump($username,$password);
+```
+`dump($request->all());`  
+`dump($request->only('username','age'));`  
+`dump($request->except('username'));`  
+`dump($request->has('username'));`  
+`dump($request->isMethod('get'));`
+###助手函数
+>request()返回Request类对象  
+`dump(request()->get('username'));`
+##响应
+###Cookie
+>Laravel中cookie值都是经过加密的  
+>response响应体中要有数据
+####设置cookie
+`return response('Cookie设置成功')->cookie('name','Good',1);`
+####获取cookie
+`return request()->cookie('name');`
+###重定向
+`return redirect()->route('login');`
+###返回json
+`return response()->json(['name'=>'zhangsan','age'=>22],201);`
