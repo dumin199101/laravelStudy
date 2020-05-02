@@ -186,3 +186,61 @@ dump($username,$password);
 `return view('login.index',compact('data'));`  
 >3.with传递   
 `return view('login.index')->with('data',$data);` 
+
+### 三元运算符及未转义输出
+`<h3>{{$age ?? '没有年龄'}}</h3>`  
+`<h3>{!! $title !!}</h3>`  
+ 
+### 原始形态输出
+>vue代码混编输出：  
+`<h4>@{{title}}</h4>`
+
+### 使用函数
+`<h3>{{date("Y-m-d")}}</h3>`
+
+### if判断
+```
+    @if($age<10)
+        <h1>小于10</h1>
+    @elseif($age>=10 && $age<20)
+        <h1>大于10小于20</h1>
+    @else
+        <h1>大于20</h1>
+    @endif
+```
+
+### foreach循环
+```
+ @foreach($user as $v)  
+        <h1>{{$v['name']}}</h1>
+ @endforeach
+```
+```
+ @forelse($book as $v)  
+        <h1>{{$v['name']}}</h1>  
+ @empty
+        <h1>没有数据</h1>  
+ @endforelse
+```
+
+### 模板包含
+>包含符：@inlude
+
+### 模板继承
+>继承符：@extends  
+>占位符：@yield  
+>实现符：@section 
+ 
+```
+     @include('public.header')
+     @yield('content')
+     @include('public.footer')
+```
+
+```
+@extends('public.main')
+@section('title','登录页面')
+@section('content')
+    <h1>这是登录表单</h1>
+@endsection
+```

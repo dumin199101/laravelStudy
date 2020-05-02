@@ -62,8 +62,22 @@ class LoginController extends Controller
             'id'=>1,
             'name'=>'zhangsan'
         ];
+        $title = '<a href="http://www.baidu.com">百度</a>';
+        $age = 22;
+        $user = [
+          ['name'=>'lisi'],
+          ['name'=>'wangwu'],
+          ['name'=>'zhangsan'],
+          ['name'=>'zhaosi'],
+        ];
+        $book = [];
 //        return view('login.index',['data'=>$data]);
-//        return view('login.index',compact('data'));
-        return view('login.index')->with('data',$data);
+        return view('login.index',compact('data','title','age','user','book'));
+//        return view('login.index')->with('data',$data);
+    }
+
+    public function index6()
+    {
+        return view('login.index1');
     }
 }
