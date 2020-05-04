@@ -38,7 +38,14 @@ Route::get('/login3','LoginController@index3');
 Route::get('/login4','LoginController@index4');
 Route::get('/login5','LoginController@index5');
 Route::get('/login6','LoginController@index6');
+Route::get('/login7','LoginController@index7');
 Route::get('/getCookie','LoginController@getCookie');
+Route::get('/register', 'LoginController@register');
+Route::post('/register','LoginController@register');
+Route::get('/register2','LoginController@register2')->name('register2');
+Route::post('/register2','LoginController@register2');
+Route::get('/register3','LoginController@register3');
+Route::post('/register3','LoginController@register3_post');
 
 Route::match(['get','post'],'book',function(){
    dump($_SERVER);

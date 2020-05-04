@@ -3,6 +3,12 @@
 > 邮箱：1766266374@qq.com  
 > 版本：v1.0    
 > 日期：2020.4.28  
+## composer命令
+>1.composer create-project  
+>2.composer require  
+>3.composer self-update   
+>4.composer update   
+>5.composer dump-autoload
 ## Laravel安装
 > Laravel composer安装:  
 >> composer create-project --prefer-dist laravel/laravel=6.0.* blog
@@ -33,7 +39,10 @@
 
 ## Laravel中的Csrf
 >默认routes目录下的web.php非GET路由都开启了Csrf请求验证  
->App\Http\Middleware\VerifyCsrfToken中可添加免Csrf认证的路由
+>App\Http\Middleware\VerifyCsrfToken中可添加免Csrf认证的路由  
+>Laravel6版本之后生成csrf表单域方式:@csrf  
+>生成csrf表单域方式:{{csrf\_field()}}  
+>生成csrf值方式:{{csrf\_token()}}
 ## 路由
 ### 四种基础路由
 >GET、POST、PUT、DELETE  
@@ -243,4 +252,91 @@ dump($username,$password);
 @section('content')
     <h1>这是登录表单</h1>
 @endsection
+```
+
+## 表单验证
+
+### 控制器验证
+```
+public function register(Request $request)
+    {
+        if($request->isMethod('post')){
+            $input = $this->validate($request,[
+                'username'=>'required|min:5|max:15',
+                'password'=>'required|min:6|confirmed',
+                'password_confirmation'=>'required',
+                'email'=>"required|email"
+            ],[
+                'username.required'=>'用户名不能为空',
+                'password.required'=>'密码不能为空',
+                'password_confirmation.required'=>'确认密码不能为空',
+                'email.required'=>'邮箱不能为空',
+                'username.min'=>'用户名长度不能少于5位',
+                'username.max'=>'用户名长度不能多于15位',
+                'password.min'=>'密码长度不能少于5位',
+                'password.confirmed'=>'密码跟确认密码不一致',
+                'email.email'=>'邮箱格式不正确',
+            ]);
+            dd($input);
+        }
+        return view('login.register');
+    }
+```
+### 独立验证
+```
+public function register2(Request $request)
+    {
+        if($request->isMethod('post')){
+            $validator = Validator::make($request->all(),[
+                'username'=>'required|min:5|max:15',
+                'password'=>'required|min:6|confirmed',
+                'password_confirmation'=>'required',
+                'email'=>"required|email"
+            ],[
+                'username.required'=>'用户名不能为空',
+                'password.required'=>'密码不能为空',
+                'password_confirmation.required'=>'确认密码不能为空',
+                'email.required'=>'邮箱不能为空',
+                'username.min'=>'用户名长度不能少于5位',
+                'username.max'=>'用户名长度不能多于15位',
+                'password.min'=>'密码长度不能少于5位',
+                'password.confirmed'=>'密码跟确认密码不一致',
+                'email.email'=>'邮箱格式不正确',
+            ]);
+            //如果有错误，返回true
+            if($validator->fails()){
+                return redirect()->route('register2')->withErrors($validator);
+            }
+            dd($request->except('_token'));
+        }
+        return view('login.register2');
+    }
+```
+
+### 验证器验证
+>1.执行命令生成验证器：php artisan make:request Register  
+
+
+```
+public function register3_post(RegisterRequest $request){
+     $validated = $request->validated();
+     dd($validated);
+}
+```
+### 中文提示切换
+>1.下载laravel-lang语言包并拷贝  
+>2.修改配置：'locale' => 'zh-CN',
+### 错误提示
+```
+ @if($errors->any())
+        <div class="alert alert-success" role="alert">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>
+                        {{$error}}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+ @endif
 ```
