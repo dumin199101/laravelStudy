@@ -340,3 +340,65 @@ public function register3_post(RegisterRequest $request){
         </div>
  @endif
 ```
+
+## 数据库
+### 查看数据库连接
+`dd(DB::connection());`
+### 安装laravel-debugbar
+>1.composer require barryvdh/laravel-debugbar --dev  
+>2.providers数组中添加：Barryvdh\Debugbar\ServiceProvider::class  
+***说明：--dev参数代表在开发环境中用到的包***
+### 执行原生SQL
+```
+$users = DB::select("SELECT * FROM `sp_user`");
+$user = DB::selectOne("SELECT * FROM `sp_user` WHERE `user_id`=:id",["id"=>1]);
+$result = DB::insert("INSERT INTO `sp_type` (`type_name`) VALUES (:type_name)",['type_name'=>'冰箱']);
+$result = DB::update('UPDATE sp_type SET type_name=:type_name WHERE `type_id`=:id', ['type_name'=>'洗衣机','id' => 5]);
+$result = DB::delete('DELETE FROM `sp_type` WHERE `type_id`=:id', ['id' => 5]);
+```
+### 构建器（QueryBuilder）
+
+```
+ $res = DB::table('user')->get();
+ $res = DB::table('user')->get(['username','user_email']);
+ $res = DB::table('user')->get(['username','user_email'])->toArray();
+```
+
+```
+ $res = DB::table('user')->where('user_id', '>=',3)->get(['username']);
+ $res = DB::table('user')->where('user_id', '>=',3)->orWhere('user_sex','男')->get(['username']);
+```
+
+```
+ $con = $request->get('con');
+ $res = DB::table('user')->when($con,function($query) use($con){
+            return $query->where('username','like',"%$con%");
+        })->get();
+```
+
+```
+$res = DB::table('user')->first();
+$res = DB::table('user')->value('username');
+$res = DB::table('user')->pluck('username', 'user_id');
+$res = DB::table('user')->count();
+```
+
+```
+$res = DB::table('user')->orderBy('user_id', 'desc')->get();
+```
+
+```
+$res = DB::table('type')->offset(1)->limit(2)->get();
+```
+
+```
+$res = DB::table('type')->insert([
+            ['type_name'=>'手机'],
+            ['type_name'=>'电风扇'],
+        ]);
+$res =  DB::table('type')->insertGetId(['type_name'=>'打印机']);
+```
+
+`$res = DB::table('type')->where('type_id',8)->update(['delete_time'=>'12321454']);`
+
+` $res = DB::table('type')->where('type_id',8)->delete();`

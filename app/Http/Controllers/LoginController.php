@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Str;
 use Validator;
+use DB;
 
 class LoginController extends Controller
 {
@@ -161,5 +162,61 @@ class LoginController extends Controller
             //2.获取验证通过的数据
             $validated = $request->validated();
             dd($validated);
+    }
+
+    //数据库
+    public function db()
+    {
+        //dd(DB::connection());
+       //原生SQL
+        $users = DB::select("SELECT * FROM `sp_user`");
+        $user = DB::selectOne("SELECT * FROM `sp_user` WHERE `user_id`=:id",["id"=>1]);
+        $result = DB::insert("INSERT INTO `sp_type` (`type_name`) VALUES (:type_name)",['type_name'=>'冰箱']);
+        $result = DB::update('UPDATE sp_type SET type_name=:type_name WHERE `type_id`=:id', ['type_name'=>'洗衣机','id' => 5]);
+        $result = DB::delete('DELETE FROM `sp_type` WHERE `type_id`=:id', ['id' => 5]);
+    }
+
+    public function db2(Request $request)
+    {
+        //查询构建器
+        $res = DB::table('user')->get();
+        $res = DB::table('user')->get(['username','user_email']);
+        $res = DB::table('user')->get(['username','user_email'])->toArray();
+        //查询ID大于3
+        $res = DB::table('user')->where('user_id', '>=',3)->get(['username']);
+        //查询ID大于3或者性别是男
+        $res = DB::table('user')->where('user_id', '>=',3)->orWhere('user_sex','男')->get(['username']);
+        //条件语句查询
+        $con = $request->get('con');
+        $res = DB::table('user')->when($con,function($query) use($con){
+            return $query->where('username','like',"%$con%");
+        })->get();
+        //获取单条数据
+        $res = DB::table('user')->first();
+        $res = DB::table('user')->value('username');
+        $res = DB::table('user')->pluck('username', 'user_id');
+        $res = DB::table('user')->count();
+
+        //排序
+        $res = DB::table('user')->orderBy('user_id', 'desc')->get();
+
+        //分页
+        $res = DB::table('type')->offset(1)->limit(2)->get();
+
+        //添加数据
+        $res = DB::table('type')->insert([
+            ['type_name'=>'手机'],
+            ['type_name'=>'电风扇'],
+        ]);
+
+        $res =  DB::table('type')->insertGetId(['type_name'=>'打印机']);
+
+        //修改数据
+        $res = DB::table('type')->where('type_id',8)->update(['delete_time'=>'12321454']);
+
+        //删除数据
+        $res = DB::table('type')->where('type_id',8)->delete();
+
+        dump($res);
     }
 }
