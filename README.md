@@ -402,3 +402,31 @@ $res =  DB::table('type')->insertGetId(['type_name'=>'打印机']);
 `$res = DB::table('type')->where('type_id',8)->update(['delete_time'=>'12321454']);`
 
 ` $res = DB::table('type')->where('type_id',8)->delete();`
+
+## 数据迁移
+
+### 生成迁移文件
+>php artisan make:migration create_article --table=articles
+
+### 编写迁移文件
+```
+ $table->increments('article_id')->comment('自增ID');
+ $table->string('title')->default('')->comment('标题');
+ $table->text('desc')->commment('内容');
+ $table->timestamps();
+```
+
+### 执行迁移文件
+>php artisan migrate
+
+### 回滚迁移文件
+>php artisan migrate:rollback
+
+### 回滚所有迁移文件
+>php artisan migrate:reset
+
+### 回滚并迁移
+>php artisan migrate:refresh
+
+
+
