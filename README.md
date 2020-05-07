@@ -428,5 +428,31 @@ $res =  DB::table('type')->insertGetId(['type_name'=>'打印机']);
 ### 回滚并迁移
 >php artisan migrate:refresh
 
+## 数据填充
 
+### 生成Seeder文件
+>php artisan make:seeder ArticleSeeder
 
+### 编写Seeder文件
+```
+ public function run()
+    {
+        $data = [];
+        for ($i=1;$i<10;$i++) {
+            $data[] = [
+                'title'=>'title_' . $i,
+                'desc'=>'desc_' . $i
+            ];
+        }
+        DB::table('articles')->insert($data);
+    }
+```
+
+### 运行Seeder文件
+>1.php artisan db:seed --class=ArticleSeeder  
+>2.DatabaseSeeder中指定要生成的seed  
+>> ` $this->call(ArticleSeeder::class);`
+>>> php artisan db:seed 
+
+### 回滚并迁移同时运行种子文件
+>php artisan migrate:refresh --seed
