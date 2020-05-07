@@ -455,4 +455,121 @@ $res =  DB::table('type')->insertGetId(['type_name'=>'打印机']);
 >>> php artisan db:seed 
 
 ### 回滚并迁移同时运行种子文件
->php artisan migrate:refresh --seed
+>php artisan migrate:refresh --seed  
+
+## 模型
+
+### 创建模型
+> php artisan make:model Models/ArticleModel
+
+### 模型限制
+>1.设置表名：$table  
+>2.设置主键：$primaryKey  
+>3.是否启用自动写入创建修改时间：$timestamps  
+>4.白名单：$fillable  
+>5.黑名单：$guarded  
+
+### ORM操作
+
+***phpstorm代码模型提示***  
+>php artisan ide-helper:models
+
+#### 添加
+>1.create方式（推荐）  
+>> 返回值为Model模型对象，必须设置黑名单$guarded，或者白名单$fillable  
+
+```
+$article = new ArticleModel();
+$data = [
+            'title'=>'中国足球',
+            'desc'=>'北京'
+        ];
+$res = $article->create($data);
+```
+>2.save方式
+>>返回值为布尔值,以对象的形式设置属性
+
+```
+$article = new ArticleModel();
+$article->title = '文章1';
+$article->desc = 'Hello World';
+$res = $article->save();
+```
+
+>3.insert方式
+>>返回值为布尔值，但是不会自动写入创建修改时间
+
+```
+$article = new ArticleModel();
+data = [
+            'title'=>'中国疫情',
+            'desc'=>'武汉'
+        ];
+$res = $article->insert($data);
+```
+
+### 查询
+>查询多条：all方法不能加where条件，get方法可以加where条件
+
+```
+$res = ArticleModel::where('article_id',1)->first();
+$res = ArticleModel::find(1);
+$res = ArticleModel::where('article_id','>',6)->get();
+$res = ArticleModel::all();
+$res = ArticleModel::where('article_id',12)->value('title');
+$res = ArticleModel::where('article_id','>',7)->pluck('title');
+$res = ArticleModel::count();
+$res = ArticleModel::where('article_id','>',8)->limit(2)->get();
+```
+
+### 修改
+>1.update方式
+>>返回值为受影响行数
+
+`$data = ['title'=>'Hello'];$res = ArticleModel::where('article_id',2)->update($data);`
+
+>2.save方式
+>>返回值为布尔值，以对象的方式设置属性
+
+```
+$article = ArticleModel::find(1);
+$article->title = '1234';
+$res = $article->save();
+```
+
+### 删除
+>1.destroy方式
+>>返回受影响的行数
+
+`$res = ArticleModel::destroy(4);`
+
+>2.delete方式
+>>返回布尔值
+
+` $article = ArticleModel::find(3);$res = $article->delete();`
+
+### 软删除
+>1.迁移文件中添加deleted_at字段    
+>>`$table->softDeletes();` 
+ 
+>2.在模型中添加  
+>>`use SoftDeletes;`  
+>>`protected $dates = ['deleted_at'];`
+
+>3.destroy方法软删除
+>>`$res = ArticleModel::destroy(4);`
+
+>4.查询软删除
+>>`$res = ArticleModel::onlyTrashed()->get();`
+
+>5.查询除软删除
+>>`$res = ArticleModel::all('title');`
+
+>6.查询包含软删除
+>>`$res = ArticleModel::withTrashed()->get();`
+
+>7.恢复软删除
+>>`$res = ArticleModel::onlyTrashed()->restore();`
+
+>8.永久删除
+>>`$res = ArticleModel::where('article_id',6)->forceDelete();`

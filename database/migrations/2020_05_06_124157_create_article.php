@@ -19,6 +19,7 @@ class CreateArticle extends Migration
             $table->string('title')->default('')->comment('标题');
             $table->text('desc')->comment('内容');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

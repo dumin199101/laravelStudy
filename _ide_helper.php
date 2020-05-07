@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.5.48 on 2020-01-05 08:30:53.
+ * Generated for Laravel 5.5.48 on 2020-05-07 08:07:59.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -46,7 +46,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a callback to run after loading the environment.
+         * Register a callback to run after loading the environment.
          *
          * @param \Closure $callback
          * @return void 
@@ -59,7 +59,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a callback to run before a bootstrapper.
+         * Register a callback to run before a bootstrapper.
          *
          * @param string $bootstrapper
          * @param \Closure $callback
@@ -73,7 +73,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a callback to run after a bootstrapper.
+         * Register a callback to run after a bootstrapper.
          *
          * @param string $bootstrapper
          * @param \Closure $callback
@@ -375,7 +375,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest all of the configured providers.
+         * Register all of the configured providers.
          *
          * @return void 
          * @static 
@@ -387,7 +387,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a service provider with the application.
+         * Register a service provider with the application.
          *
          * @param \Illuminate\Support\ServiceProvider|string $provider
          * @param array $options
@@ -466,7 +466,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a deferred provider and service.
+         * Register a deferred provider and service.
          *
          * @param string $provider
          * @param string|null $service
@@ -535,7 +535,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a new boot listener.
+         * Register a new boot listener.
          *
          * @param mixed $callback
          * @return void 
@@ -548,7 +548,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a new "booted" listener.
+         * Register a new "booted" listener.
          *
          * @param mixed $callback
          * @return void 
@@ -684,7 +684,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a terminating callback with the application.
+         * Register a terminating callback with the application.
          *
          * @param \Closure $callback
          * @return \Illuminate\Foundation\Application 
@@ -860,7 +860,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest the core class aliases in the container.
+         * Register the core class aliases in the container.
          *
          * @return void 
          * @static 
@@ -972,7 +972,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a binding with the container.
+         * Register a binding with the container.
          *
          * @param string $abstract
          * @param \Closure|string|null $concrete
@@ -1048,7 +1048,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a binding if it hasn't already been registered.
+         * Register a binding if it hasn't already been registered.
          *
          * @param string $abstract
          * @param \Closure|string|null $concrete
@@ -1064,7 +1064,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a shared binding in the container.
+         * Register a shared binding in the container.
          *
          * @param string $abstract
          * @param \Closure|string|null $concrete
@@ -1095,7 +1095,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest an existing instance as shared in the container.
+         * Register an existing instance as shared in the container.
          *
          * @param string $abstract
          * @param mixed $instance
@@ -1276,7 +1276,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a new resolving callback.
+         * Register a new resolving callback.
          *
          * @param \Closure|string $abstract
          * @param \Closure|null $callback
@@ -1291,7 +1291,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a new after resolving callback for all types.
+         * Register a new after resolving callback for all types.
          *
          * @param \Closure|string $abstract
          * @param \Closure|null $callback
@@ -1496,7 +1496,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a Closure based command with the application.
+         * Register a Closure based command with the application.
          *
          * @param string $signature
          * @param \Closure $callback
@@ -1511,7 +1511,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest the given command with the console application.
+         * Register the given command with the console application.
          *
          * @param \Symfony\Component\Console\Command\Command $command
          * @return void 
@@ -1700,7 +1700,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a new callback based request guard.
+         * Register a new callback based request guard.
          *
          * @param string $driver
          * @param callable $callback
@@ -1739,7 +1739,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom driver creator Closure.
+         * Register a custom driver creator Closure.
          *
          * @param string $driver
          * @param \Closure $callback
@@ -1753,7 +1753,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom provider creator Closure.
+         * Register a custom provider creator Closure.
          *
          * @param string $name
          * @param \Closure $callback
@@ -1940,7 +1940,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest an authentication attempt event listener.
+         * Register an authentication attempt event listener.
          *
          * @param mixed $callback
          * @return void 
@@ -2176,7 +2176,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom macro.
+         * Register a custom macro.
          *
          * @param string $name
          * @param object|callable $macro
@@ -2286,7 +2286,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom Blade compiler.
+         * Register a custom Blade compiler.
          *
          * @param callable $compiler
          * @return void 
@@ -2311,7 +2311,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest an "if" statement directive.
+         * Register an "if" statement directive.
          *
          * @param string $name
          * @param callable $callback
@@ -2339,7 +2339,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a handler for custom directives.
+         * Register a handler for custom directives.
          *
          * @param string $name
          * @param callable $handler
@@ -2440,7 +2440,7 @@ namespace Illuminate\Support\Facades {
     class Broadcast {
         
         /**
-         * RegisterRequest the routes for handling broadcast authentication and sockets.
+         * Register the routes for handling broadcast authentication and sockets.
          *
          * @param array|null $attributes
          * @return void 
@@ -2543,7 +2543,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom driver creator Closure.
+         * Register a custom driver creator Closure.
          *
          * @param string $driver
          * @param \Closure $callback
@@ -2788,7 +2788,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom driver creator Closure.
+         * Register a custom driver creator Closure.
          *
          * @param string $driver
          * @param \Closure $callback
@@ -3215,7 +3215,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom macro.
+         * Register a custom macro.
          *
          * @param string $name
          * @param object|callable $macro
@@ -3830,7 +3830,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest an extension connection resolver.
+         * Register an extension connection resolver.
          *
          * @param string $name
          * @param callable $resolver
@@ -4144,7 +4144,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a database query listener with the connection.
+         * Register a database query listener with the connection.
          *
          * @param \Closure $callback
          * @return void 
@@ -4602,7 +4602,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a connection resolver.
+         * Register a connection resolver.
          *
          * @param string $driver
          * @param \Closure $callback
@@ -4708,7 +4708,7 @@ namespace Illuminate\Support\Facades {
     class Event {
         
         /**
-         * RegisterRequest an event listener with the dispatcher.
+         * Register an event listener with the dispatcher.
          *
          * @param string|array $events
          * @param mixed $listener
@@ -4735,7 +4735,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest an event and payload to be fired later.
+         * Register an event and payload to be fired later.
          *
          * @param string $event
          * @param array $payload
@@ -4762,7 +4762,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest an event subscriber with the dispatcher.
+         * Register an event subscriber with the dispatcher.
          *
          * @param object|string $subscriber
          * @return void 
@@ -4832,7 +4832,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest an event listener with the dispatcher.
+         * Register an event listener with the dispatcher.
          *
          * @param \Closure|string $listener
          * @param bool $wildcard
@@ -5455,7 +5455,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom macro.
+         * Register a custom macro.
          *
          * @param string $name
          * @param object|callable $macro
@@ -5558,7 +5558,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a callback to run before all Gate checks.
+         * Register a callback to run before all Gate checks.
          *
          * @param callable $callback
          * @return \Illuminate\Auth\Access\Gate 
@@ -5571,7 +5571,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a callback to run after all Gate checks.
+         * Register a callback to run after all Gate checks.
          *
          * @param callable $callback
          * @return \Illuminate\Auth\Access\Gate 
@@ -6084,7 +6084,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom macro.
+         * Register a custom macro.
          *
          * @param string $name
          * @param object|callable $macro
@@ -6272,7 +6272,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a file log handler.
+         * Register a file log handler.
          *
          * @param string $path
          * @param string $level
@@ -6286,7 +6286,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a daily file log handler.
+         * Register a daily file log handler.
          *
          * @param string $path
          * @param int $days
@@ -6301,7 +6301,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a Syslog handler.
+         * Register a Syslog handler.
          *
          * @param string $name
          * @param string $level
@@ -6316,7 +6316,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest an error_log handler.
+         * Register an error_log handler.
          *
          * @param string $level
          * @param int $messageType
@@ -6330,7 +6330,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a new callback handler for when a log event is triggered.
+         * Register a new callback handler for when a log event is triggered.
          *
          * @param \Closure $callback
          * @return void 
@@ -6652,7 +6652,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom macro.
+         * Register a custom macro.
          *
          * @param string $name
          * @param object|callable $macro
@@ -6925,7 +6925,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom driver creator Closure.
+         * Register a custom driver creator Closure.
          *
          * @param string $driver
          * @param \Closure $callback
@@ -7096,7 +7096,7 @@ namespace Illuminate\Support\Facades {
     class Queue {
         
         /**
-         * RegisterRequest an event listener for the before job event.
+         * Register an event listener for the before job event.
          *
          * @param mixed $callback
          * @return void 
@@ -7109,7 +7109,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest an event listener for the after job event.
+         * Register an event listener for the after job event.
          *
          * @param mixed $callback
          * @return void 
@@ -7122,7 +7122,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest an event listener for the exception occurred job event.
+         * Register an event listener for the exception occurred job event.
          *
          * @param mixed $callback
          * @return void 
@@ -7135,7 +7135,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest an event listener for the daemon queue loop.
+         * Register an event listener for the daemon queue loop.
          *
          * @param mixed $callback
          * @return void 
@@ -7148,7 +7148,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest an event listener for the failed job event.
+         * Register an event listener for the failed job event.
          *
          * @param mixed $callback
          * @return void 
@@ -7161,7 +7161,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest an event listener for the daemon queue stopping.
+         * Register an event listener for the daemon queue stopping.
          *
          * @param mixed $callback
          * @return void 
@@ -7717,7 +7717,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom macro.
+         * Register a custom macro.
          *
          * @param string $name
          * @param object|callable $macro
@@ -9796,7 +9796,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom macro.
+         * Register a custom macro.
          *
          * @param string $name
          * @param object|callable $macro
@@ -10041,7 +10041,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom macro.
+         * Register a custom macro.
          *
          * @param string $name
          * @param object|callable $macro
@@ -10094,7 +10094,7 @@ namespace Illuminate\Support\Facades {
     class Route {
         
         /**
-         * RegisterRequest a new GET route with the router.
+         * Register a new GET route with the router.
          *
          * @param string $uri
          * @param \Closure|array|string|null $action
@@ -10108,7 +10108,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a new POST route with the router.
+         * Register a new POST route with the router.
          *
          * @param string $uri
          * @param \Closure|array|string|null $action
@@ -10122,7 +10122,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a new PUT route with the router.
+         * Register a new PUT route with the router.
          *
          * @param string $uri
          * @param \Closure|array|string|null $action
@@ -10136,7 +10136,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a new PATCH route with the router.
+         * Register a new PATCH route with the router.
          *
          * @param string $uri
          * @param \Closure|array|string|null $action
@@ -10150,7 +10150,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a new DELETE route with the router.
+         * Register a new DELETE route with the router.
          *
          * @param string $uri
          * @param \Closure|array|string|null $action
@@ -10164,7 +10164,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a new OPTIONS route with the router.
+         * Register a new OPTIONS route with the router.
          *
          * @param string $uri
          * @param \Closure|array|string|null $action
@@ -10178,7 +10178,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a new route responding to all verbs.
+         * Register a new route responding to all verbs.
          *
          * @param string $uri
          * @param \Closure|array|string|null $action
@@ -10192,7 +10192,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a new Fallback route with the router.
+         * Register a new Fallback route with the router.
          *
          * @param \Closure|array|string|null $action
          * @return \Illuminate\Routing\Route 
@@ -10220,7 +10220,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a new route that returns a view.
+         * Register a new route that returns a view.
          *
          * @param string $uri
          * @param string $view
@@ -10235,7 +10235,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a new route with the given verbs.
+         * Register a new route with the given verbs.
          *
          * @param array|string $methods
          * @param string $uri
@@ -10250,7 +10250,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest an array of resource controllers.
+         * Register an array of resource controllers.
          *
          * @param array $resources
          * @return void 
@@ -10278,7 +10278,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest an array of API resource controllers.
+         * Register an array of API resource controllers.
          *
          * @param array $resources
          * @return void 
@@ -10450,7 +10450,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a route matched event listener.
+         * Register a route matched event listener.
          *
          * @param string|callable $callback
          * @return void 
@@ -10475,7 +10475,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a short-hand name for a middleware.
+         * Register a short-hand name for a middleware.
          *
          * @param string $name
          * @param string $class
@@ -10514,7 +10514,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a group of middleware.
+         * Register a group of middleware.
          *
          * @param string $name
          * @param array $middleware
@@ -10574,7 +10574,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a model binder for a wildcard.
+         * Register a model binder for a wildcard.
          *
          * @param string $key
          * @param string $class
@@ -10805,7 +10805,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest the typical authentication routes for an application.
+         * Register the typical authentication routes for an application.
          *
          * @return void 
          * @static 
@@ -10881,7 +10881,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom macro.
+         * Register a custom macro.
          *
          * @param string $name
          * @param object|callable $macro
@@ -11239,7 +11239,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom driver creator Closure.
+         * Register a custom driver creator Closure.
          *
          * @param string $driver
          * @param \Closure $callback
@@ -11932,7 +11932,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom driver creator Closure.
+         * Register a custom driver creator Closure.
          *
          * @param string $driver
          * @param \Closure $callback
@@ -12759,7 +12759,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom macro.
+         * Register a custom macro.
          *
          * @param string $name
          * @param object|callable $macro
@@ -12838,7 +12838,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom validator extension.
+         * Register a custom validator extension.
          *
          * @param string $rule
          * @param \Closure|string $extension
@@ -12853,7 +12853,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom implicit validator extension.
+         * Register a custom implicit validator extension.
          *
          * @param string $rule
          * @param \Closure|string $extension
@@ -12868,7 +12868,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom dependent validator extension.
+         * Register a custom dependent validator extension.
          *
          * @param string $rule
          * @param \Closure|string $extension
@@ -12883,7 +12883,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a custom validator message replacer.
+         * Register a custom validator message replacer.
          *
          * @param string $rule
          * @param \Closure|string $replacer
@@ -13165,7 +13165,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a valid view extension and its engine.
+         * Register a valid view extension and its engine.
          *
          * @param string $extension
          * @param string $engine
@@ -13393,7 +13393,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a view creator event.
+         * Register a view creator event.
          *
          * @param array|string $views
          * @param \Closure|string $callback
@@ -13407,7 +13407,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest multiple view composers via an array.
+         * Register multiple view composers via an array.
          *
          * @param array $composers
          * @return array 
@@ -13420,7 +13420,7 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
-         * RegisterRequest a view composer event.
+         * Register a view composer event.
          *
          * @param array|string $views
          * @param \Closure|string $callback
@@ -13773,6 +13773,612 @@ namespace Illuminate\Support\Facades {
  
 }
 
+namespace Barryvdh\Debugbar { 
+
+    /**
+     * 
+     *
+     * @method static void alert(string $message)
+     * @method static void critical(string $message)
+     * @method static void debug(string $message)
+     * @method static void emergency(string $message)
+     * @method static void error(string $message)
+     * @method static void info(string $message)
+     * @method static void log(string $message)
+     * @method static void notice(string $message)
+     * @method static void warning(string $message)
+     * @see \Barryvdh\Debugbar\LaravelDebugbar
+     */ 
+    class Facade {
+        
+        /**
+         * Enable the Debugbar and boot, if not already booted.
+         *
+         * @static 
+         */ 
+        public static function enable()
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->enable();
+        }
+        
+        /**
+         * Boot the debugbar (add collectors, renderer and listener)
+         *
+         * @static 
+         */ 
+        public static function boot()
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->boot();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function shouldCollect($name, $default = false)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->shouldCollect($name, $default);
+        }
+        
+        /**
+         * Adds a data collector
+         *
+         * @param \Barryvdh\Debugbar\DataCollectorInterface $collector
+         * @throws DebugBarException
+         * @return \Barryvdh\Debugbar\LaravelDebugbar 
+         * @static 
+         */ 
+        public static function addCollector($collector)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->addCollector($collector);
+        }
+        
+        /**
+         * Handle silenced errors
+         *
+         * @param $level
+         * @param $message
+         * @param string $file
+         * @param int $line
+         * @param array $context
+         * @throws \ErrorException
+         * @static 
+         */ 
+        public static function handleError($level, $message, $file = '', $line = 0, $context = [])
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->handleError($level, $message, $file, $line, $context);
+        }
+        
+        /**
+         * Starts a measure
+         *
+         * @param string $name Internal name, used to stop the measure
+         * @param string $label Public name
+         * @static 
+         */ 
+        public static function startMeasure($name, $label = null)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->startMeasure($name, $label);
+        }
+        
+        /**
+         * Stops a measure
+         *
+         * @param string $name
+         * @static 
+         */ 
+        public static function stopMeasure($name)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->stopMeasure($name);
+        }
+        
+        /**
+         * Adds an exception to be profiled in the debug bar
+         *
+         * @param \Exception $e
+         * @deprecated in favor of addThrowable
+         * @static 
+         */ 
+        public static function addException($e)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->addException($e);
+        }
+        
+        /**
+         * Adds an exception to be profiled in the debug bar
+         *
+         * @param \Exception $e
+         * @static 
+         */ 
+        public static function addThrowable($e)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->addThrowable($e);
+        }
+        
+        /**
+         * Returns a JavascriptRenderer for this instance
+         *
+         * @param string $baseUrl
+         * @param string $basePathng
+         * @return \Barryvdh\Debugbar\JavascriptRenderer 
+         * @static 
+         */ 
+        public static function getJavascriptRenderer($baseUrl = null, $basePath = null)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getJavascriptRenderer($baseUrl, $basePath);
+        }
+        
+        /**
+         * Modify the response and inject the debugbar (or data in headers)
+         *
+         * @param \Symfony\Component\HttpFoundation\Request $request
+         * @param \Symfony\Component\HttpFoundation\Response $response
+         * @return \Symfony\Component\HttpFoundation\Response 
+         * @static 
+         */ 
+        public static function modifyResponse($request, $response)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->modifyResponse($request, $response);
+        }
+        
+        /**
+         * Check if the Debugbar is enabled
+         *
+         * @return boolean 
+         * @static 
+         */ 
+        public static function isEnabled()
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->isEnabled();
+        }
+        
+        /**
+         * Collects the data from the collectors
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function collect()
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->collect();
+        }
+        
+        /**
+         * Injects the web debug toolbar into the given Response.
+         *
+         * @param \Symfony\Component\HttpFoundation\Response $response A Response instance
+         * Based on https://github.com/symfony/WebProfilerBundle/blob/master/EventListener/WebDebugToolbarListener.php
+         * @static 
+         */ 
+        public static function injectDebugbar($response)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->injectDebugbar($response);
+        }
+        
+        /**
+         * Disable the Debugbar
+         *
+         * @static 
+         */ 
+        public static function disable()
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->disable();
+        }
+        
+        /**
+         * Adds a measure
+         *
+         * @param string $label
+         * @param float $start
+         * @param float $end
+         * @static 
+         */ 
+        public static function addMeasure($label, $start, $end)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->addMeasure($label, $start, $end);
+        }
+        
+        /**
+         * Utility function to measure the execution of a Closure
+         *
+         * @param string $label
+         * @param \Closure $closure
+         * @static 
+         */ 
+        public static function measure($label, $closure)
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->measure($label, $closure);
+        }
+        
+        /**
+         * Collect data in a CLI request
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function collectConsole()
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->collectConsole();
+        }
+        
+        /**
+         * Adds a message to the MessagesCollector
+         * 
+         * A message can be anything from an object to a string
+         *
+         * @param mixed $message
+         * @param string $label
+         * @static 
+         */ 
+        public static function addMessage($message, $label = 'info')
+        {
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->addMessage($message, $label);
+        }
+        
+        /**
+         * Checks if a data collector has been added
+         *
+         * @param string $name
+         * @return boolean 
+         * @static 
+         */ 
+        public static function hasCollector($name)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->hasCollector($name);
+        }
+        
+        /**
+         * Returns a data collector
+         *
+         * @param string $name
+         * @return \DebugBar\DataCollectorInterface 
+         * @throws DebugBarException
+         * @static 
+         */ 
+        public static function getCollector($name)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getCollector($name);
+        }
+        
+        /**
+         * Returns an array of all data collectors
+         *
+         * @return \DebugBar\array[DataCollectorInterface] 
+         * @static 
+         */ 
+        public static function getCollectors()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getCollectors();
+        }
+        
+        /**
+         * Sets the request id generator
+         *
+         * @param \DebugBar\RequestIdGeneratorInterface $generator
+         * @return \Barryvdh\Debugbar\LaravelDebugbar 
+         * @static 
+         */ 
+        public static function setRequestIdGenerator($generator)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->setRequestIdGenerator($generator);
+        }
+        
+        /**
+         * 
+         *
+         * @return \DebugBar\RequestIdGeneratorInterface 
+         * @static 
+         */ 
+        public static function getRequestIdGenerator()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getRequestIdGenerator();
+        }
+        
+        /**
+         * Returns the id of the current request
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getCurrentRequestId()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getCurrentRequestId();
+        }
+        
+        /**
+         * Sets the storage backend to use to store the collected data
+         *
+         * @param \DebugBar\StorageInterface $storage
+         * @return \Barryvdh\Debugbar\LaravelDebugbar 
+         * @static 
+         */ 
+        public static function setStorage($storage = null)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->setStorage($storage);
+        }
+        
+        /**
+         * 
+         *
+         * @return \DebugBar\StorageInterface 
+         * @static 
+         */ 
+        public static function getStorage()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getStorage();
+        }
+        
+        /**
+         * Checks if the data will be persisted
+         *
+         * @return boolean 
+         * @static 
+         */ 
+        public static function isDataPersisted()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->isDataPersisted();
+        }
+        
+        /**
+         * Sets the HTTP driver
+         *
+         * @param \DebugBar\HttpDriverInterface $driver
+         * @return \Barryvdh\Debugbar\LaravelDebugbar 
+         * @static 
+         */ 
+        public static function setHttpDriver($driver)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->setHttpDriver($driver);
+        }
+        
+        /**
+         * Returns the HTTP driver
+         * 
+         * If no http driver where defined, a PhpHttpDriver is automatically created
+         *
+         * @return \DebugBar\HttpDriverInterface 
+         * @static 
+         */ 
+        public static function getHttpDriver()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getHttpDriver();
+        }
+        
+        /**
+         * Returns collected data
+         * 
+         * Will collect the data if none have been collected yet
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getData()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getData();
+        }
+        
+        /**
+         * Returns an array of HTTP headers containing the data
+         *
+         * @param string $headerName
+         * @param integer $maxHeaderLength
+         * @return array 
+         * @static 
+         */ 
+        public static function getDataAsHeaders($headerName = 'phpdebugbar', $maxHeaderLength = 4096, $maxTotalHeaderLength = 250000)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getDataAsHeaders($headerName, $maxHeaderLength, $maxTotalHeaderLength);
+        }
+        
+        /**
+         * Sends the data through the HTTP headers
+         *
+         * @param bool $useOpenHandler
+         * @param string $headerName
+         * @param integer $maxHeaderLength
+         * @return \Barryvdh\Debugbar\LaravelDebugbar 
+         * @static 
+         */ 
+        public static function sendDataInHeaders($useOpenHandler = null, $headerName = 'phpdebugbar', $maxHeaderLength = 4096)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->sendDataInHeaders($useOpenHandler, $headerName, $maxHeaderLength);
+        }
+        
+        /**
+         * Stacks the data in the session for later rendering
+         *
+         * @static 
+         */ 
+        public static function stackData()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->stackData();
+        }
+        
+        /**
+         * Checks if there is stacked data in the session
+         *
+         * @return boolean 
+         * @static 
+         */ 
+        public static function hasStackedData()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->hasStackedData();
+        }
+        
+        /**
+         * Returns the data stacked in the session
+         *
+         * @param boolean $delete Whether to delete the data in the session
+         * @return array 
+         * @static 
+         */ 
+        public static function getStackedData($delete = true)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getStackedData($delete);
+        }
+        
+        /**
+         * Sets the key to use in the $_SESSION array
+         *
+         * @param string $ns
+         * @return \Barryvdh\Debugbar\LaravelDebugbar 
+         * @static 
+         */ 
+        public static function setStackDataSessionNamespace($ns)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->setStackDataSessionNamespace($ns);
+        }
+        
+        /**
+         * Returns the key used in the $_SESSION array
+         *
+         * @return string 
+         * @static 
+         */ 
+        public static function getStackDataSessionNamespace()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->getStackDataSessionNamespace();
+        }
+        
+        /**
+         * Sets whether to only use the session to store stacked data even
+         * if a storage is enabled
+         *
+         * @param boolean $enabled
+         * @return \Barryvdh\Debugbar\LaravelDebugbar 
+         * @static 
+         */ 
+        public static function setStackAlwaysUseSessionStorage($enabled = true)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->setStackAlwaysUseSessionStorage($enabled);
+        }
+        
+        /**
+         * Checks if the session is always used to store stacked data
+         * even if a storage is enabled
+         *
+         * @return boolean 
+         * @static 
+         */ 
+        public static function isStackAlwaysUseSessionStorage()
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->isStackAlwaysUseSessionStorage();
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function offsetSet($key, $value)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->offsetSet($key, $value);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function offsetGet($key)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->offsetGet($key);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function offsetExists($key)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->offsetExists($key);
+        }
+        
+        /**
+         * 
+         *
+         * @static 
+         */ 
+        public static function offsetUnset($key)
+        {
+            //Method inherited from \DebugBar\DebugBar            
+                        /** @var \Barryvdh\Debugbar\LaravelDebugbar $instance */
+                        return $instance->offsetUnset($key);
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -13813,7 +14419,7 @@ namespace  {
             }
          
             /**
-             * RegisterRequest a new global scope.
+             * Register a new global scope.
              *
              * @param string $identifier
              * @param \Illuminate\Database\Eloquent\Scope|\Closure $scope
@@ -14229,7 +14835,7 @@ namespace  {
             }
          
             /**
-             * RegisterRequest a replacement for the default delete function.
+             * Register a replacement for the default delete function.
              *
              * @param \Closure $callback
              * @return void 
@@ -15978,7 +16584,7 @@ namespace  {
             }
          
             /**
-             * RegisterRequest a custom macro.
+             * Register a custom macro.
              *
              * @param string $name
              * @param object|callable $macro
@@ -16069,6 +16675,8 @@ namespace  {
     class Validator extends \Illuminate\Support\Facades\Validator {}
 
     class View extends \Illuminate\Support\Facades\View {}
+
+    class Debugbar extends \Barryvdh\Debugbar\Facade {}
  
 }
 

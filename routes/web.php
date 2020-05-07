@@ -48,6 +48,7 @@ Route::get('/register3','LoginController@register3');
 Route::post('/register3','LoginController@register3_post');
 Route::get('db','LoginController@db');
 Route::get('db2','LoginController@db2');
+Route::get('db3','LoginController@db3');
 
 Route::match(['get','post'],'book',function(){
    dump($_SERVER);
