@@ -53,11 +53,11 @@
 Route::get('foo', function () {
     return 'Hello World';
 });
-```  
+```
 >2.通过文件构建  
 ```
 Route::get('/login','LoginController@index');
-```  
+```
 
 ### 其它路由
 >1.match:响应多个请求方式  
@@ -65,7 +65,7 @@ Route::get('/login','LoginController@index');
 Route::match(['get','post'],'book',function(){
    dump($_SERVER);
 });
-```  
+```
 >2.any：响应所有请求方式  
 ```
 Route::any('books',function (){
@@ -79,19 +79,19 @@ Route::any('books',function (){
 Route::get('video/{id}',function($id){
     return 'Get:' . $id;
 });
-```  
+```
 >2.可选参数  
 ```
 Route::get('videos/{id?}',function($id=0){
     return 'Get:' . $id;
 });
-```  
+```
 >3.正则约束 
 ```
 Route::get('v/{id}',function($id){
     return 'Get:' . $id;
 })->where(['id'=>'\d+']);
-``` 
+```
 
 ### 路由别名
 ```
@@ -199,7 +199,7 @@ dump($username,$password);
 ### 三元运算符及未转义输出
 `<h3>{{$age ?? '没有年龄'}}</h3>`  
 `<h3>{!! $title !!}</h3>`  
- 
+
 ### 原始形态输出
 >vue代码混编输出：  
 `<h4>@{{title}}</h4>`
@@ -239,7 +239,7 @@ dump($username,$password);
 >继承符：@extends  
 >占位符：@yield  
 >实现符：@section 
- 
+
 ```
      @include('public.header')
      @yield('content')
@@ -452,7 +452,8 @@ $res =  DB::table('type')->insertGetId(['type_name'=>'打印机']);
 >1.php artisan db:seed --class=ArticleSeeder  
 >2.DatabaseSeeder中指定要生成的seed  
 >> ` $this->call(ArticleSeeder::class);`
->>> php artisan db:seed 
+>>
+>> > php artisan db:seed 
 
 ### 回滚并迁移同时运行种子文件
 >php artisan migrate:refresh --seed  
@@ -476,6 +477,7 @@ $res =  DB::table('type')->insertGetId(['type_name'=>'打印机']);
 
 #### 添加
 >1.create方式（推荐）  
+>
 >> 返回值为Model模型对象，必须设置黑名单$guarded，或者白名单$fillable  
 
 ```
@@ -487,6 +489,7 @@ $data = [
 $res = $article->create($data);
 ```
 >2.save方式
+>
 >>返回值为布尔值,以对象的形式设置属性
 
 ```
@@ -497,6 +500,7 @@ $res = $article->save();
 ```
 
 >3.insert方式
+>
 >>返回值为布尔值，但是不会自动写入创建修改时间
 
 ```
@@ -508,7 +512,7 @@ data = [
 $res = $article->insert($data);
 ```
 
-### 查询
+#### 查询
 >查询多条：all方法不能加where条件，get方法可以加where条件
 
 ```
@@ -522,13 +526,15 @@ $res = ArticleModel::count();
 $res = ArticleModel::where('article_id','>',8)->limit(2)->get();
 ```
 
-### 修改
+#### 修改
 >1.update方式
+>
 >>返回值为受影响行数
 
 `$data = ['title'=>'Hello'];$res = ArticleModel::where('article_id',2)->update($data);`
 
 >2.save方式
+>
 >>返回值为布尔值，以对象的方式设置属性
 
 ```
@@ -537,39 +543,48 @@ $article->title = '1234';
 $res = $article->save();
 ```
 
-### 删除
+#### 删除
 >1.destroy方式
+>
 >>返回受影响的行数
 
 `$res = ArticleModel::destroy(4);`
 
 >2.delete方式
+>
 >>返回布尔值
 
 ` $article = ArticleModel::find(3);$res = $article->delete();`
 
-### 软删除
+#### 软删除
 >1.迁移文件中添加deleted_at字段    
+>
 >>`$table->softDeletes();` 
- 
+
 >2.在模型中添加  
 >>`use SoftDeletes;`  
 >>`protected $dates = ['deleted_at'];`
 
 >3.destroy方法软删除
+>
 >>`$res = ArticleModel::destroy(4);`
 
 >4.查询软删除
+>
 >>`$res = ArticleModel::onlyTrashed()->get();`
 
 >5.查询除软删除
+>
 >>`$res = ArticleModel::all('title');`
 
 >6.查询包含软删除
+>
 >>`$res = ArticleModel::withTrashed()->get();`
 
 >7.恢复软删除
+>
 >>`$res = ArticleModel::onlyTrashed()->restore();`
 
 >8.永久删除
+>
 >>`$res = ArticleModel::where('article_id',6)->forceDelete();`
