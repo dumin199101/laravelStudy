@@ -8,7 +8,8 @@
 >2.composer require  
 >3.composer self-update   
 >4.composer update   
->5.composer dump-autoload
+>5.composer dump-autoload  
+>6.composer install
 ## Laravel安装
 > Laravel composer安装:  
 >> composer create-project --prefer-dist laravel/laravel=6.0.* blog
@@ -508,7 +509,7 @@ data = [
 $res = $article->insert($data);
 ```
 
-### 查询
+#### 查询
 >查询多条：all方法不能加where条件，get方法可以加where条件
 
 ```
@@ -522,7 +523,7 @@ $res = ArticleModel::count();
 $res = ArticleModel::where('article_id','>',8)->limit(2)->get();
 ```
 
-### 修改
+#### 修改
 >1.update方式
 >>返回值为受影响行数
 
@@ -537,7 +538,7 @@ $article->title = '1234';
 $res = $article->save();
 ```
 
-### 删除
+#### 删除
 >1.destroy方式
 >>返回受影响的行数
 
@@ -548,7 +549,7 @@ $res = $article->save();
 
 ` $article = ArticleModel::find(3);$res = $article->delete();`
 
-### 软删除
+#### 软删除
 >1.迁移文件中添加deleted_at字段    
 >>`$table->softDeletes();` 
  
