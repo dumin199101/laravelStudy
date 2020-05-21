@@ -725,3 +725,39 @@ public function sess()
 
 ## 中间件
 
+中间件是请求与响应之间的中间人，是一种过滤机制。
+
+> 创建中间件  
+
+```php artisan make:middleware CheckUser```
+
+
+> 定义中间件
+
+```php
+public function handle($request, Closure $next)
+{
+    dump("用户中间件");
+    return $next($request);
+}
+```
+
+> 注册中间件
+
+中间件分为全局中间件跟路由中间件，在Laravel中app\Http\Kernel.php中进行定义。
+
+```php
+protected $routeMiddleware = [
+    'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
+    'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+    'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
+    'can' => \Illuminate\Auth\Middleware\Authorize::class,
+    'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+    'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+    'checkuser' => \App\Http\Middleware\CheckUser::class
+];
+```
+
+```php
+Route::get('mid','LoginController@mid')->name('mid')->middleware('checkuser');
+```
