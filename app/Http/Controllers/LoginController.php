@@ -281,4 +281,14 @@ class LoginController extends Controller
 
 
     }
+
+    public function db4()
+    {
+        $data = [
+            'title'=>'中国疫情',
+            'desc'=>'武汉'
+        ];
+        $res = ArticleModel::create($data);
+        dump($res);
+    }
 }

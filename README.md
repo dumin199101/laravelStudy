@@ -629,3 +629,34 @@ $factory->define(App\Models\ArticleModel::class, function (Faker $faker) {
 ```php
 factory(\App\Models\ArticleModel::class, 20)->create();
 ```
+
+## 模型事件
+
+**Eloquent 模型触发几个事件，允许你挂接到模型生命周期的如下节点： retrieved、creating、created、updating、updated、saving、saved、deleting、deleted、restoring 和 restored。事件允许你每当特定模型保存或更新数据库时执行代码。每个事件通过其构造器接受模型实例。**
+
+> 1.生成观察者
+
+`php artisan make:observer ArticleObserver --model=Models/ArticleModel`
+
+> 2.编写观察者
+
+```php
+class ArticleObserver
+{
+    public function creating(ArticleModel $article)
+    {
+        $article->ip = request()->ip();
+    }
+
+}
+```
+
+> 3.模型中调用观察者
+
+```php
+protected static function boot()
+{
+    ArticleModel::observe(ArticleObserver::class);
+    parent::boot();
+}
+```

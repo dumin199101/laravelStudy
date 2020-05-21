@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Http\Observers\ArticleObserver;
+use App\Models\ArticleModel;
+
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -14,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+//        ArticleModel::observe(ArticleObserver::class);
     }
 
     /**
