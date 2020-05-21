@@ -702,3 +702,26 @@ return view('login.page',compact('data'));
 Session 的配置文件存储在 `config/session.php` 文件中，默认情况下，Laravel 为绝大多数应用程序配置的 Session 驱动为 `file` 。 file驱动将 Session 存储在 `storage/framework/sessions` 中。
 
 > 操作
+
+```php
+public function sess()
+{
+    //设置
+    session(['name'=>'lieyan']);
+    //获取
+    $name = session()->get('name');
+    dump($name);
+    //删除
+    session()->forget('name');
+    //删除所有
+    session()->flush();
+    dump(session()->has('name'));
+    //闪存
+    session()->flash('age', 22);
+    dump(session()->get('age'));
+
+}
+```
+
+## 中间件
+

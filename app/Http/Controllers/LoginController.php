@@ -321,4 +321,10 @@ class LoginController extends Controller
         dump(session()->get('age'));
 
     }
+    
+    //中间件
+    public function mid()
+    {
+      return 1;
+    }
 }
