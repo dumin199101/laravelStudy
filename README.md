@@ -9,12 +9,14 @@
 >3.composer self-update   
 >4.composer update   
 >5.composer dump-autoload  
->6.composer install
+>6.composer install  
 ## Laravel安装
 > Laravel composer安装:  
 >> composer create-project --prefer-dist laravel/laravel=6.0.* blog
 >>> --perfer-dist:代表压缩方式下载  
->>> 6.0.*:代表6.0最新版本
+>>> 6.0.*:代表6.0最新版本  
+> Laravel 安装完后，生成APP_KEY，写入.env文件  
+>> php artisan key:generate   
 ## Laravel IDE-helper插件
 > 1. composer require barryvdh/laravel-ide-helper  
 > 2. config/app.php中providers数组添加:  
@@ -54,11 +56,11 @@
 Route::get('foo', function () {
     return 'Hello World';
 });
-```  
+```
 >2.通过文件构建  
 ```
 Route::get('/login','LoginController@index');
-```  
+```
 
 ### 其它路由
 >1.match:响应多个请求方式  
@@ -66,7 +68,7 @@ Route::get('/login','LoginController@index');
 Route::match(['get','post'],'book',function(){
    dump($_SERVER);
 });
-```  
+```
 >2.any：响应所有请求方式  
 ```
 Route::any('books',function (){
@@ -80,19 +82,19 @@ Route::any('books',function (){
 Route::get('video/{id}',function($id){
     return 'Get:' . $id;
 });
-```  
+```
 >2.可选参数  
 ```
 Route::get('videos/{id?}',function($id=0){
     return 'Get:' . $id;
 });
-```  
+```
 >3.正则约束 
 ```
 Route::get('v/{id}',function($id){
     return 'Get:' . $id;
 })->where(['id'=>'\d+']);
-``` 
+```
 
 ### 路由别名
 ```
@@ -200,7 +202,7 @@ dump($username,$password);
 ### 三元运算符及未转义输出
 `<h3>{{$age ?? '没有年龄'}}</h3>`  
 `<h3>{!! $title !!}</h3>`  
- 
+
 ### 原始形态输出
 >vue代码混编输出：  
 `<h4>@{{title}}</h4>`
@@ -240,7 +242,7 @@ dump($username,$password);
 >继承符：@extends  
 >占位符：@yield  
 >实现符：@section 
- 
+
 ```
      @include('public.header')
      @yield('content')
@@ -453,7 +455,8 @@ $res =  DB::table('type')->insertGetId(['type_name'=>'打印机']);
 >1.php artisan db:seed --class=ArticleSeeder  
 >2.DatabaseSeeder中指定要生成的seed  
 >> ` $this->call(ArticleSeeder::class);`
->>> php artisan db:seed 
+>>
+>> > php artisan db:seed 
 
 ### 回滚并迁移同时运行种子文件
 >php artisan migrate:refresh --seed  
@@ -477,6 +480,7 @@ $res =  DB::table('type')->insertGetId(['type_name'=>'打印机']);
 
 #### 添加
 >1.create方式（推荐）  
+>
 >> 返回值为Model模型对象，必须设置黑名单$guarded，或者白名单$fillable  
 
 ```
@@ -488,6 +492,7 @@ $data = [
 $res = $article->create($data);
 ```
 >2.save方式
+>
 >>返回值为布尔值,以对象的形式设置属性
 
 ```
@@ -498,6 +503,7 @@ $res = $article->save();
 ```
 
 >3.insert方式
+>
 >>返回值为布尔值，但是不会自动写入创建修改时间
 
 ```
@@ -525,11 +531,13 @@ $res = ArticleModel::where('article_id','>',8)->limit(2)->get();
 
 #### 修改
 >1.update方式
+>
 >>返回值为受影响行数
 
 `$data = ['title'=>'Hello'];$res = ArticleModel::where('article_id',2)->update($data);`
 
 >2.save方式
+>
 >>返回值为布尔值，以对象的方式设置属性
 
 ```
@@ -540,37 +548,216 @@ $res = $article->save();
 
 #### 删除
 >1.destroy方式
+>
 >>返回受影响的行数
 
 `$res = ArticleModel::destroy(4);`
 
 >2.delete方式
+>
 >>返回布尔值
 
 ` $article = ArticleModel::find(3);$res = $article->delete();`
 
 #### 软删除
 >1.迁移文件中添加deleted_at字段    
+>
 >>`$table->softDeletes();` 
- 
+
 >2.在模型中添加  
 >>`use SoftDeletes;`  
 >>`protected $dates = ['deleted_at'];`
 
 >3.destroy方法软删除
+>
 >>`$res = ArticleModel::destroy(4);`
 
 >4.查询软删除
+>
 >>`$res = ArticleModel::onlyTrashed()->get();`
 
 >5.查询除软删除
+>
 >>`$res = ArticleModel::all('title');`
 
 >6.查询包含软删除
+>
 >>`$res = ArticleModel::withTrashed()->get();`
 
 >7.恢复软删除
+>
 >>`$res = ArticleModel::onlyTrashed()->restore();`
 
 >8.永久删除
+>
 >>`$res = ArticleModel::where('article_id',6)->forceDelete();`
+
+## Faker模拟数据
+
+### faker基本使用
+
+```php
+$faker = Faker\Factory::create();
+$data = [];
+for ($i=1;$i<10;$i++) {
+    $data[] = [
+        'title'=>$faker->name,
+        'desc'=>$faker->sentence
+    ];
+}
+```
+
+### faker数据工厂模拟数据
+
+> 1.生成模型工厂
+
+`php artisan make:factory ArticleFactory --model=Models/ArticleModel`
+
+> 2.编写模型工厂  
+
+```php
+$factory->define(App\Models\ArticleModel::class, function (Faker $faker) {
+    return [
+        'title' => $faker->name,
+        'desc' => $faker->sentence
+    ];
+});
+```
+
+> 3.调用模型工厂
+
+```php
+factory(\App\Models\ArticleModel::class, 20)->create();
+```
+
+## 模型事件
+
+**Eloquent 模型触发几个事件，允许你挂接到模型生命周期的如下节点： retrieved、creating、created、updating、updated、saving、saved、deleting、deleted、restoring 和 restored。事件允许你每当特定模型保存或更新数据库时执行代码。每个事件通过其构造器接受模型实例。**
+
+> 1.生成观察者
+
+`php artisan make:observer ArticleObserver --model=Models/ArticleModel`
+
+> 2.编写观察者
+
+```php
+class ArticleObserver
+{
+    public function creating(ArticleModel $article)
+    {
+        $article->ip = request()->ip();
+    }
+
+}
+```
+
+> 3.模型中调用观察者
+
+```php
+protected static function boot()
+{
+    ArticleModel::observe(ArticleObserver::class);
+    parent::boot();
+}
+```
+
+## 分页
+
+> 控制器
+
+```php
+public function page()
+{
+    $data = ArticleModel::paginate(env('PAGE_SIZE'));
+    return view('login.page',compact('data'));
+}
+```
+
+> 视图
+
+```html
+<div class="row">
+    {{$data->links()}}
+</div>
+```
+
+> 搜索
+
+```php
+$title = $request->get('title');
+$data = ArticleModel::when($title,function(Builder $query) use($title){
+   $query->where('title','like',"%{$title}%");
+})->paginate(env('PAGE_SIZE'));
+return view('login.page',compact('data'));
+```
+
+```html
+<div class="row">
+    {{$data->appends(request()->except('page'))->links()}}
+</div>
+```
+
+## Session
+
+Session 的配置文件存储在 `config/session.php` 文件中，默认情况下，Laravel 为绝大多数应用程序配置的 Session 驱动为 `file` 。 file驱动将 Session 存储在 `storage/framework/sessions` 中。
+
+> 操作
+
+```php
+public function sess()
+{
+    //设置
+    session(['name'=>'lieyan']);
+    //获取
+    $name = session()->get('name');
+    dump($name);
+    //删除
+    session()->forget('name');
+    //删除所有
+    session()->flush();
+    dump(session()->has('name'));
+    //闪存
+    session()->flash('age', 22);
+    dump(session()->get('age'));
+
+}
+```
+
+## 中间件
+
+中间件是请求与响应之间的中间人，是一种过滤机制。
+
+> 创建中间件  
+
+```php artisan make:middleware CheckUser```
+
+
+> 定义中间件
+
+```php
+public function handle($request, Closure $next)
+{
+    dump("用户中间件");
+    return $next($request);
+}
+```
+
+> 注册中间件
+
+中间件分为全局中间件跟路由中间件，在Laravel中app\Http\Kernel.php中进行定义。
+
+```php
+protected $routeMiddleware = [
+    'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
+    'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+    'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
+    'can' => \Illuminate\Auth\Middleware\Authorize::class,
+    'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
+    'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+    'checkuser' => \App\Http\Middleware\CheckUser::class
+];
+```
+
+```php
+Route::get('mid','LoginController@mid')->name('mid')->middleware('checkuser');
+```

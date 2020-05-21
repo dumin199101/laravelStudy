@@ -11,13 +11,18 @@ class ArticleSeeder extends Seeder
      */
     public function run()
     {
+        // faker基本使用
+        /*$faker = Faker\Factory::create();
         $data = [];
         for ($i=1;$i<10;$i++) {
             $data[] = [
-                'title'=>'title_' . $i,
-                'desc'=>'desc_' . $i
+                'title'=>$faker->name,
+                'desc'=>$faker->sentence
             ];
         }
-        DB::table('articles')->insert($data);
+        DB::table('articles')->insert($data);*/
+
+        //使用faker数据工厂模拟数据
+        factory(\App\Models\ArticleModel::class, 20)->create();
     }
 }

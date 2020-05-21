@@ -18,6 +18,7 @@ class CreateArticle extends Migration
             $table->increments('article_id')->comment('自增ID');
             $table->string('title')->default('')->comment('标题');
             $table->text('desc')->comment('内容');
+            $table->char('ip',19)->default('')->comment('IP地址');
             $table->timestamps();
             $table->softDeletes();
         });

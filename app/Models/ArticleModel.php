@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+
+use App\Http\Observers\ArticleObserver;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
@@ -37,4 +39,14 @@ class ArticleModel extends Model
     protected $table = 'articles';
     protected $primaryKey = 'article_id';
     protected $guarded = [];
+    /*protected $dispatchesEvents = [
+        'creating' => ArticleObserver::class,
+    ];*/
+    protected static function boot()
+    {
+        ArticleModel::observe(ArticleObserver::class);
+        parent::boot();
+    }
+
+
 }
