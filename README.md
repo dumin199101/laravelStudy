@@ -8,12 +8,15 @@
 >2.composer require  
 >3.composer self-update   
 >4.composer update   
->5.composer dump-autoload
+>5.composer dump-autoload  
+>6.composer install  
 ## Laravel安装
 > Laravel composer安装:  
 >> composer create-project --prefer-dist laravel/laravel=6.0.* blog
 >>> --perfer-dist:代表压缩方式下载  
->>> 6.0.*:代表6.0最新版本
+>>> 6.0.*:代表6.0最新版本  
+> Laravel 安装完后，生成APP_KEY，写入.env文件  
+>> php artisan key:generate   
 ## Laravel IDE-helper插件
 > 1. composer require barryvdh/laravel-ide-helper  
 > 2. config/app.php中providers数组添加:  
@@ -588,3 +591,41 @@ $res = $article->save();
 >8.永久删除
 >
 >>`$res = ArticleModel::where('article_id',6)->forceDelete();`
+
+## Faker模拟数据
+
+### faker基本使用
+
+```php
+$faker = Faker\Factory::create();
+$data = [];
+for ($i=1;$i<10;$i++) {
+    $data[] = [
+        'title'=>$faker->name,
+        'desc'=>$faker->sentence
+    ];
+}
+```
+
+### faker数据工厂模拟数据
+
+> 1.生成模型工厂
+
+`php artisan make:factory ArticleFactory --model=Models/ArticleModel`
+
+> 2.编写模型工厂  
+
+```php
+$factory->define(App\Models\ArticleModel::class, function (Faker $faker) {
+    return [
+        'title' => $faker->name,
+        'desc' => $faker->sentence
+    ];
+});
+```
+
+> 3.调用模型工厂
+
+```php
+factory(\App\Models\ArticleModel::class, 20)->create();
+```
