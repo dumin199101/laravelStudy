@@ -660,3 +660,45 @@ protected static function boot()
     parent::boot();
 }
 ```
+
+## 分页
+
+> 控制器
+
+```php
+public function page()
+{
+    $data = ArticleModel::paginate(env('PAGE_SIZE'));
+    return view('login.page',compact('data'));
+}
+```
+
+> 视图
+
+```html
+<div class="row">
+    {{$data->links()}}
+</div>
+```
+
+> 搜索
+
+```php
+$title = $request->get('title');
+$data = ArticleModel::when($title,function(Builder $query) use($title){
+   $query->where('title','like',"%{$title}%");
+})->paginate(env('PAGE_SIZE'));
+return view('login.page',compact('data'));
+```
+
+```html
+<div class="row">
+    {{$data->appends(request()->except('page'))->links()}}
+</div>
+```
+
+## Session
+
+Session 的配置文件存储在 `config/session.php` 文件中，默认情况下，Laravel 为绝大多数应用程序配置的 Session 驱动为 `file` 。 file驱动将 Session 存储在 `storage/framework/sessions` 中。
+
+> 操作

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
 use App\Models\ArticleModel;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Str;
@@ -290,5 +291,34 @@ class LoginController extends Controller
         ];
         $res = ArticleModel::create($data);
         dump($res);
+    }
+
+    //分页
+    public function page(Request $request)
+    {
+        $title = $request->get('title');
+        $data = ArticleModel::when($title,function(Builder $query) use($title){
+           $query->where('title','like',"%{$title}%");
+        })->paginate(env('PAGE_SIZE'));
+        return view('login.page',compact('data'));
+    }
+    
+    //session
+    public function sess()
+    {
+        //设置
+        session(['name'=>'lieyan']);
+        //获取
+        $name = session()->get('name');
+        dump($name);
+        //删除
+        session()->forget('name');
+        //删除所有
+        session()->flush();
+        dump(session()->has('name'));
+        //闪存
+        session()->flash('age', 22);
+        dump(session()->get('age'));
+
     }
 }
