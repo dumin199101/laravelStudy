@@ -53,6 +53,7 @@ Route::get('db4','LoginController@db4')->name('db4');
 Route::get('page','LoginController@page')->name('page');
 Route::get('sess','LoginController@sess')->name('sess');
 Route::get('mid','LoginController@mid')->name('mid')->middleware('checkuser');
+Route::get('redis','LoginController@redis')->name('redis');
 
 
 Route::match(['get','post'],'book',function(){

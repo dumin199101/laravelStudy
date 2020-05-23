@@ -761,3 +761,35 @@ protected $routeMiddleware = [
 ```php
 Route::get('mid','LoginController@mid')->name('mid')->middleware('checkuser');
 ```
+
+## 缓存
+
+> 安装redis扩展 
+    
+`composer require predis/predis`
+
+```
+public function redis()
+    {
+        //设置
+        Cache::add('name', 'laravel', 1);
+        Cache::put('age', 22, 1);
+        //获取
+        $age = Cache::get('age', 10);
+        $city = Cache::get('city',function(){
+           return 'beijing';
+        });
+        dump($age);
+        dump($city);
+        Cache::remember('article_1_title',1,function(){
+            return ArticleModel::where('article_id',1)->value('title');
+        });
+        dump(cache()->has('name'));
+        //先获取再删除
+        dump(cache()->pull('name'));
+        //删除
+        cache()->forget('age');
+        Cache::flush();
+    }
+```
+
