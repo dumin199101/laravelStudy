@@ -793,3 +793,20 @@ public function redis()
     }
 ```
 
+## 用户认证  
+>> 模型：Illuminate\Foundation\Auth\User as Authenticatable  
+>> 控制器：Illuminate\Support\Facades\Auth::class  
+>> 配置：config/auth.php  
+
+```
+public function authenticate(Request $request)
+{
+       $credentials = $request->only('email', 'password');
+       if (Auth::attempt($credentials)) {
+            // 通过认证..
+            dump(Auth::user(),Auth::id())
+       }
+}
+```
+
+
