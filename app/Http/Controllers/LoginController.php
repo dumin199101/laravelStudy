@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterRequest;
 use App\Models\ArticleModel;
+use App\Models\Goods;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
@@ -351,5 +352,26 @@ class LoginController extends Controller
         //删除
         cache()->forget('age');
         Cache::flush();
+    }
+
+    //关联模型 一对一
+    public function db5()
+    {
+        $goods = Goods::where('goods_id',1)->first();
+        dump($goods->info->desc);
+
+        $goods2= Goods::with('info')->where('goods_id',2)->first();
+        dump($goods2->info->desc);
+    }
+
+    //关联模型 一对多
+    public function db6()
+    {
+        $goods2= Goods::with('pics')->where('goods_id',2)->first();
+        dump($goods2->pics);
+        $goods3= Goods::with(['pics'=>function($query){
+            return $query->where('pics_id','>=',8);
+        }])->where('goods_id',2)->first();
+        dump($goods3->pics);
     }
 }

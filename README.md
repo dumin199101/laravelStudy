@@ -809,4 +809,38 @@ public function authenticate(Request $request)
 }
 ```
 
+## 关联模型
 
+### 一对一  
+
+```
+$goods = Goods::where('goods_id',1)->first();
+dump($goods->info->desc);
+$goods2= Goods::with('info')->where('goods_id',2)->first();
+dump($goods2->info->desc);
+```
+
+### 一对多
+```
+$goods2= Goods::with('pics')->where('goods_id',2)->first();
+dump($goods2->pics);
+$goods3= Goods::with(['pics'=>function($query){
+    return $query->where('pics_id','>=',8);
+}])->where('goods_id',2)->first();
+dump($goods3->pics);
+```
+
+### 多对多
+
+```
+return $this->belongsToMany('App\Role', 'role_user', 'user_id', 'role_id');
+```
+
+> 获取中间表字段
+
+```
+$user = App\User::find(1);
+foreach ($user->roles as $role) {
+    echo $role->pivot->created_at;
+}
+```
