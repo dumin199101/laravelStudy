@@ -52,7 +52,7 @@ Route::get('db3','LoginController@db3');
 Route::get('db4','LoginController@db4')->name('db4');
 Route::get('page','LoginController@page')->name('page');
 Route::get('sess','LoginController@sess')->name('sess');
-Route::get('mid','LoginController@mid')->name('mid')->middleware('checkuser');
+Route::get('mid','LoginController@mid')->name('mid')->middleware('checkuser:middle');
 Route::get('redis','LoginController@redis')->name('redis');
 Route::get('db5','LoginController@db5')->name('db5');
 Route::get('db6','LoginController@db6')->name('db6');

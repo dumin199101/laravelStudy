@@ -182,6 +182,14 @@ dump($username,$password);
 ### 重定向  
 `return redirect()->route('login');`  
 
+```
+return redirect()->route('login')->with('msg','登录失败');
+```
+
+```
+return redirect()->back()->withErrors('msg','登录失败');
+```
+
 ### 返回json  
 `return response()->json(['name'=>'zhangsan','age'=>22],201);`  
 
@@ -735,11 +743,12 @@ public function sess()
 > 定义中间件
 
 ```php
-public function handle($request, Closure $next)
-{
-    dump("用户中间件");
-    return $next($request);
-}
+public function handle($request, Closure $next,$params)
+    {
+        dump($request->route()->getName());
+        dump("用户中间件",$params);
+        return $next($request);
+    }
 ```
 
 > 注册中间件
@@ -759,13 +768,13 @@ protected $routeMiddleware = [
 ```
 
 ```php
-Route::get('mid','LoginController@mid')->name('mid')->middleware('checkuser');
+Route::get('mid','LoginController@mid')->name('mid')->middleware('checkuser:middle');
 ```
 
 ## 缓存
 
 > 安装redis扩展 
-    
+
 `composer require predis/predis`
 
 ```
@@ -798,6 +807,8 @@ public function redis()
 >> 控制器：Illuminate\Support\Facades\Auth::class  
 >> 配置：config/auth.php  
 
+> 手动验证用户
+
 ```
 public function authenticate(Request $request)
 {
@@ -807,6 +818,20 @@ public function authenticate(Request $request)
             dump(Auth::user(),Auth::id())
        }
 }
+```
+
+> 检查用户是否登录
+
+```
+if (Auth::check()) {
+    // 用户已经登录了...
+}
+```
+
+> 退出登录
+
+```
+Auth::logout();
 ```
 
 ## 关联模型
@@ -844,3 +869,29 @@ foreach ($user->roles as $role) {
     echo $role->pivot->created_at;
 }
 ```
+
+## laravel自定义函数
+
+> 1、新建文件，文件名任意：
+
+```
+app/Helpers/function.php
+```
+
+> 2、在composer.json 中 autoload 增加：
+
+```
+“autoload”：{
+       ...
+        "files":[
+            "app/Helpers/function.php"
+        ]        
+}
+```
+
+> 3、打开cmd  切换到项目目录   执行命令：
+
+```
+composer dump
+```
+

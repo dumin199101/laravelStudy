@@ -13,9 +13,10 @@ class CheckUser
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next,$params)
     {
-        dump("用户中间件");
+        dump($request->route()->getName());
+        dump("用户中间件",$params);
         return $next($request);
     }
 }
