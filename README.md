@@ -115,6 +115,18 @@ Route::group(['prefix'=>'sys'],function(){
 ### 查看定义的路由
 >php artisan route:list
 
+### 资源路由
+
+> 简化路由定义：自动定义index、store、create、show、update、destroy、edit路由，省略一个一个定义。
+
+```
+Route::resource('index','IndexController',['as'=>'admin']);
+```
+
+```
+php artisan make:controller Admin/IndexController -r -m Models/Index
+```
+
 ## 控制器
 
 ### 创建控制器
