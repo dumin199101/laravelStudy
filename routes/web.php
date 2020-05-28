@@ -91,3 +91,6 @@ Route::group(['prefix'=>'sys'],function(){
       return 'login';
    });
 });
+
+//资源路由
+Route::resource('index','IndexController',['as'=>'admin']);
